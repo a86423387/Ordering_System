@@ -1,7 +1,7 @@
 package com.OrderingSystem.OrderingSystem.Service;
 
-import com.OrderingSystem.OrderingSystem.Dao.DishRepository;
-import com.OrderingSystem.OrderingSystem.Dao.DishTypeRepository;
+import com.OrderingSystem.OrderingSystem.Repository.DishRepository;
+import com.OrderingSystem.OrderingSystem.Repository.DishTypeRepository;
 import com.OrderingSystem.OrderingSystem.Dto.DishDTO;
 import com.OrderingSystem.OrderingSystem.Dto.DishTypeDTO;
 import com.OrderingSystem.OrderingSystem.Entity.DishEntity;

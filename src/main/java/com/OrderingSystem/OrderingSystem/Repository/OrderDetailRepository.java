@@ -1,4 +1,4 @@
-package com.OrderingSystem.OrderingSystem.Dao;
+package com.OrderingSystem.OrderingSystem.Repository;
 
 import com.OrderingSystem.OrderingSystem.Entity.OrderDetailEntity;
 import org.springframework.data.jpa.repository.JpaRepository;

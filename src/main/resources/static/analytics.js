@@ -9,8 +9,8 @@ function drawCharts(response) {
         ['Hour', '銷售數量', '銷售額', '累積銷售額'],
     ];
     response.hourlySales.forEach(item => {
-        tmpTotalSales += item.total;
-        hourlySalesData.push([item.hour + ":00", item.count, item.total, tmpTotalSales]);
+        tmpTotalSales += item.totalSales;
+        hourlySalesData.push([item.hour + ":00", item.saleCount, item.totalSales, tmpTotalSales]);
     });
 
     // ------- 最熱銷的前5名餐點數據 -------

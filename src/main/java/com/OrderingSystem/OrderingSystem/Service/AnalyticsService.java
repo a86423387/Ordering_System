@@ -1,7 +1,7 @@
 package com.OrderingSystem.OrderingSystem.Service;
 
-import com.OrderingSystem.OrderingSystem.Dao.OrderRepository;
 import com.OrderingSystem.OrderingSystem.Dto.AnalyticsResponse;
+import com.OrderingSystem.OrderingSystem.Repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -22,7 +22,7 @@ public class AnalyticsService {
         List<Object[]> hourlySalesList = orderRepository.getHourlySales(date);
         List<AnalyticsResponse.HourlySales> hourlySales = new ArrayList<>();
         for (Object[] obj : hourlySalesList) {
-            hourlySales.add(new AnalyticsResponse.HourlySales((Integer) obj[0], (Integer) obj[1], (Double) obj[2])); // 注意：第三個參數應為 Double 類型
+            hourlySales.add(new AnalyticsResponse.HourlySales((Integer) obj[0], (Integer) obj[1], (Integer) obj[2]));
         }
 
         // 獲取最熱銷餐點數據
