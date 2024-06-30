@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Order Details</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1>訂單詳細信息</h1>
+    <h3>Order ID: <span th:text="${order.id}"></span></h3>
+    <h3>Date: <span th:text="${order.dateTime}"></span></h3>
+    <h3>Total Price: <span th:text="${order.totalPrice}"></span></h3>
+    <h3>Payment Method: <span th:text="${order.payMethod}"></span></h3>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Dish Name</th>
+            <th>Quantity</th>
+            <th>Total</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="detail : ${orderDetails}">
+            <td th:text="${detail.dish.name}"></td>
+            <td th:text="${detail.count}"></td>
+            <td th:text="${detail.total}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <a class="btn btn-primary" href="/orders">Back to Order List</a>
+</div>
+</body>
+</html>

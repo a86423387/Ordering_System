@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Orders</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<!-- 插入導航列 -->
+<div th:insert="~{navbar}"></div>
+
+<div class="container">
+    <h1>訂單列表</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>訂單編號</th>
+            <th>時間</th>
+            <th>總價</th>
+            <th>付款方式</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="order : ${orders}">
+            <td th:text="${order.id}"></td>
+            <td th:text="${order.dateTime}"></td>
+            <td th:text="${order.totalPrice}"></td>
+            <td th:text="${order.payMethod}"></td>
+            <td>
+                <a class="btn btn-info" th:href="@{/orders/{orderId}(orderId=${order.id})}">查看詳情</a>
+                <a class="btn btn-danger" th:href="@{/orders/delete/{orderId}(orderId=${order.id})}">刪除</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <title>營業結果分析</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="/static/analytics.js"></script>
+</head>
+<body class="container">
+<div th:insert="~{navbar}"></div>
+
+<div class="form-group row mt-4">
+    <h5 class="col-sm-1 align-self-center">日期:</h5>
+    <div class="col-sm-3">
+        <input type="date" class="form-control" id="datePicker" th:value="${#dates.format(#dates.createNow(), 'yyyy-MM-dd')}">
+    </div>
+    <div class="col-sm-2">
+        <button class="btn btn-primary" id="queryBtn">查詢</button>
+    </div>
+</div>
+
+<div id="totalSales" class="mt-4 mb-4"></div>
+<div id="hourlySalesChart"></div>
+<div id="topSellingChart"></div>
+</body>
+</html>

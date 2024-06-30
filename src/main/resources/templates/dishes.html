@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dishes</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+<body>
+<!-- 插入導航列 -->
+<div th:insert="~{navbar}"></div>
+
+<div class="container">
+    <h1>菜單</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>序號</th>
+            <th>名稱</th>
+            <th>描述</th>
+            <th>價格</th>
+            <th>類型</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="dish,iterStat : ${dishes}">
+            <td th:text="${iterStat.index + 1}"></td>
+            <td th:text="${dish.name}"></td>
+            <td th:text="${dish.description}"></td>
+            <td th:text="'$' + ${dish.price}"></td>
+            <td th:text="${dish.type_id}"></td>
+            <td>
+                <a class="btn btn-info" th:href="@{/dishes/edit/{dishId}(dishId=${dish.id})}"><i class="bi bi-pencil-square"></i></a>
+                <a class="btn btn-danger" th:href="@{/dishes/delete/{dishId}(dishId=${dish.id})}"><i class="bi bi-trash3"></i></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <a class="btn btn-success" href="/dishes/create">新增餐點</a>
+</div>
+</body>
+</html>

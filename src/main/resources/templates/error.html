@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Error</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1>Error</h1>
+    <p th:text="'發生錯誤: ' + ${errorMessage}"></p>
+    <a class="btn btn-primary" href="/">Back to Home</a>
+</div>
+</body>
+</html>

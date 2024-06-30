@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Order</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="/order.js"></script>
+</head>
+<body>
+<!-- 插入導航列 -->
+<div th:insert="~{navbar}"></div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Menu</h2>
+            <ul class="list-group">
+                <li class="list-group-item" th:each="dish : ${dishes}">
+                    <div th:data-dish-id="${dish.id}">
+                        <span th:text="${dish.name}"></span> - $<span th:text="${dish.price}"></span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col"><h2>Order Summary</h2></div>
+                <div class="col">
+                    <button id="placeOrderBtn"
+                            class="btn btn-primary" disabled="true">
+                        送出訂單
+                    </button>
+                </div>
+            </div>
+
+            <ul class="list-group" id="orderSummary">
+            </ul>
+
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <h4>Total:</h4>
+                </div>
+                <div class="col-md-6">
+                    <h4 id="totalAmount">$0.00</h4>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <h4>Payment Method:</h4>
+                </div>
+                <div class="col-md-6">
+                    <select id="payMethod" class="form-control">
+                        <option value="">請選擇支付方式</option>
+                        <option value="信用卡">信用卡</option>
+                        <option value="現金">現金</option>
+                        <option value="Apple_Pay">Apple Pay</option>
+                        <option value="Line_Pay">Line Pay</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
